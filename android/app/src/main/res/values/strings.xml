@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Book&Go</string>
+    <string name="title_activity_main">Book&Go</string>
+    <string name="package_name">com.bookgo.ajuran</string>
+    <string name="fileprovider_authority">com.bookgo.ajuran.fileprovider</string>
+    <string name="custom_url_scheme">com.bookgo.ajuran</string>
+</resources>

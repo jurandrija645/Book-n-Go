@@ -1,0 +1,6 @@
+{
+  "appId": "com.bookgo.ajuran",
+  "appName": "Book&Go",
+  "bundledWebRuntime": false,
+  "webDir": "www"
+}

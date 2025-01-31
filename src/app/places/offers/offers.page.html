@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Moje ponude</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button routerLink="/places/tabs/offers/new">
+        <ion-icon name="add" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+      <ion-row>  
+          <ion-col offset="3">
+          <ion-chip>
+            <ion-icon name="help" color="primary"></ion-icon>
+            <ion-label>Klizni za uređivanje</ion-label>
+          </ion-chip>
+          </ion-col>
+        </ion-row>
+    <ion-row>
+      <ion-col size="12" size-sm="8" offset-sm="2">
+        <div *ngIf="isLoading" text-center>
+          <ion-spinner color="primary"></ion-spinner>
+        </div>
+        <div text-center *ngIf="!isLoading && relevantPlaces.length <= 0">
+          <p>Nije pronađena niti jedna ponuda!</p>
+          <ion-button color="primary" routerLink="/places/tabs/offers/new"
+            >Ponudi smještaj</ion-button
+          >
+        </div>
+        <ion-list *ngIf="!isLoading && offers.length > 0">
+          <ion-item-sliding *ngFor="let offer of relevantPlaces" #slidingItem>
+            <app-offer-item [offer]="offer"></app-offer-item>
+            <ion-item-options side="end">
+              <ion-item-option
+                color="secondary"
+                (click)="onEdit(offer.id, slidingItem)"
+              >
+                <ion-icon name="create" slot="icon-only"></ion-icon>
+              </ion-item-option>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
